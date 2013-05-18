@@ -10,11 +10,14 @@ class HeadlineModule(tornado.web.UIModule):
 class MainHandler(tornado.web.RequestHandler):
     def get(self):        
         self.render("index.html", content="Lorem ipsum...")
-        
-tpl_path = os.path.join(os.path.dirname(__file__), "tmpl")
+
+path = os.path.dirname(__file__) 
+tpl_path = os.path.join(path, "tmpl")
+static_path = os.path.join(path, 'static')
 
 application = tornado.web.Application([(r".*", MainHandler)], 
                                       template_path=tpl_path,
+                                      static_path=static_path,
                                       ui_modules={'Headline':HeadlineModule})
 
 if __name__ == "__main__":
