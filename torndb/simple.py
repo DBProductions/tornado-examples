@@ -3,10 +3,11 @@ import tornado.ioloop
 import tornado.web
 import torndb
 
+db = torndb.Connection("localhost", "tornado", "root", "admin")
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Tornado &amp; Torndb (MySQL)<br>")
-        db = torndb.Connection("localhost", "tornado", "root", "admin")
         for i in db.query("SELECT * FROM user"):
             self.write(i.name + '<br>');
         db.close();       
