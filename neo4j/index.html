@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<strong>Node</strong>
+    	<br>
+    	{{ node.properties }}
+    	<br>
+    	<strong>Relations</strong>
+    	<br>
+    	{% for i in rel %}
+    	    {{ i.type }}
+    	    {{ i.start.id }}
+    	    ->
+    	    {{ i.end.id }}
+            {{ i.properties }}
+            <br>
+    	{% end %}
+    </body>
+</html>
