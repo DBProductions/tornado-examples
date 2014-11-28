@@ -2,11 +2,14 @@ import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 import tornado.websocket
+import uuid
 
 class SocketHandler(tornado.websocket.WebSocketHandler):
     def open(self):
-        print "WebSocket opened"
+        self.socket_id = str(uuid.uuid4())
+        print "WebSocket opened", self.socket_id
     def on_message(self, message):
+        print self.socket_id, "send message"
         self.write_message(message)
     def on_close(self):
         print "WebSocket closed"
