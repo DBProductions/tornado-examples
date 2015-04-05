@@ -3,20 +3,27 @@ import tornado.ioloop
 import tornado.web
 from pymongo import Connection
 
-connection = Connection('localhost', 27017)
-db = connection.tornado
-user = db.user
+MONGODBHOST = "localhost"
+MONGODBPORT = 27017
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         docs = []
+        user = self.application.db.user
         self.write("tornado &amp; mongo (db:tornado, collection:user)<br>")
         for i in user.find():       
             self.write(i['name'] + "<br>")    
 
-application = tornado.web.Application([(r".*", MainHandler)])
+class Application(tornado.web.Application):
+    def __init__(self):
+    	self.connection = Connection(MONGODBHOST, MONGODBPORT)
+        self.db = self.connection.tornado
+        handlers = [(r".*", MainHandler)]
+        settings = {}
+        tornado.web.Application.__init__(self, handlers, **settings)
 
 if __name__ == "__main__":
-    http_server = tornado.httpserver.HTTPServer(application)
+    app = Application()
+    http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(8888)
     tornado.ioloop.IOLoop.instance().start()

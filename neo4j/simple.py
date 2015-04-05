@@ -3,9 +3,12 @@ import tornado.ioloop
 import tornado.web
 from neo4jrestclient.client import GraphDatabase
 
+NEO4JHOST = "http://localhost:7474/db/data/"
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         nodeid = self.get_argument('id', 1)
+        self.application.gdb.nodes.create(name="Neo4J")
         node = self.application.gdb.node[nodeid]
         rel = []
         for i in node.relationships.all():
@@ -14,7 +17,7 @@ class MainHandler(tornado.web.RequestHandler):
 
 class Application(tornado.web.Application):
     def __init__(self):
-        self.gdb = GraphDatabase("http://localhost:7474/db/data/")
+        self.gdb = GraphDatabase(NEO4JHOST)        
         handlers = [(r".*", MainHandler)]
         settings = {}
         tornado.web.Application.__init__(self, handlers, **settings)

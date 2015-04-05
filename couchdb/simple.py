@@ -3,9 +3,12 @@ import tornado.ioloop
 import tornado.web
 import httplib
 
+COUCHHOST = "127.0.0.1"
+COUCHPORT = 5984
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        connection = httplib.HTTPConnection('127.0.0.1', 5984)
+        connection = httplib.HTTPConnection(COUCHHOST, COUCHPORT)
         connection.request("GET", "/tornado/doc_id")
         res = connection.getresponse()
         doc = res.read()

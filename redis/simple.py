@@ -3,6 +3,9 @@ import tornado.ioloop
 import tornado.web
 import redis
 
+REDISHOST = "localhost"
+REDISPORT = 6379
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.application.r.set('key', 'Redis')
@@ -11,7 +14,7 @@ class MainHandler(tornado.web.RequestHandler):
       
 class Application(tornado.web.Application):
     def __init__(self):
-        self.r = redis.Redis(host='localhost', port=6379, db=0)
+        self.r = redis.Redis(host=REDISHOST, port=REDISPORT, db=0)
         handlers = [(r".*", MainHandler)]
         settings = {}
         tornado.web.Application.__init__(self, handlers, **settings)
