@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+#
+# Simplify asynchronous code
+
 import time
 from tornado.ioloop import IOLoop
 from tornado import gen

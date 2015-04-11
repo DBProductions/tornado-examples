@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+#
+# An non-blocking HTTP client
+
 import tornado.httpclient
 
 def handle_response(response):

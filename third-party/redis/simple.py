@@ -1,7 +1,9 @@
-import tornado.httpserver
-import tornado.ioloop
-import tornado.web
+#!/usr/bin/env python
+
 import redis
+import tornado.web
+import tornado.ioloop
+import tornado.httpserver
 
 REDISHOST = "localhost"
 REDISPORT = 6379

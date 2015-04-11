@@ -1,7 +1,9 @@
-import tornado.httpserver
-import tornado.ioloop
-import tornado.web
+#!/usr/bin/env python
+
 import os
+import tornado.web
+import tornado.ioloop
+import tornado.httpserver
 
 class HeadlineModule(tornado.web.UIModule):
     def render(self, title):

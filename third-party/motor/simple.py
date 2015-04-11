@@ -1,7 +1,9 @@
-import tornado.httpserver
-import tornado.ioloop
-import tornado.web
+#!/usr/bin/env python
+
 import motor
+import tornado.web
+import tornado.ioloop
+import tornado.httpserver
 
 class MainHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous

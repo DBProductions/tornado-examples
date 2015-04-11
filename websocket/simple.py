@@ -1,8 +1,10 @@
-import tornado.httpserver
-import tornado.ioloop
-import tornado.web
-import tornado.websocket
+#!/usr/bin/env python
+
 import uuid
+import tornado.web
+import tornado.ioloop
+import tornado.websocket
+import tornado.httpserver
 
 class SocketHandler(tornado.websocket.WebSocketHandler):
     def open(self):

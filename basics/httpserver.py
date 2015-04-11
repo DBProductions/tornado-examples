@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+#
+# A non-blocking, single-threaded HTTP server
+
 import tornado.httpserver
 import tornado.ioloop
 

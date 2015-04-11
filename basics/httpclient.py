@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+#
+# A blocking HTTP client
+
 import tornado.httpclient
 
 http_client = tornado.httpclient.HTTPClient()

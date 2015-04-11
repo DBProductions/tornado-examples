@@ -1,7 +1,9 @@
-import tornado.httpserver
-import tornado.ioloop
-import tornado.web
+#!/usr/bin/env python
+
 import httplib
+import tornado.web
+import tornado.ioloop
+import tornado.httpserver
 
 COUCHHOST = "127.0.0.1"
 COUCHPORT = 5984

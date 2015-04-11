@@ -1,6 +1,8 @@
-import tornado.httpserver
-import tornado.ioloop
+#!/usr/bin/env python
+
 import tornado.web
+import tornado.ioloop
+import tornado.httpserver
 from pymongo import Connection
 
 MONGODBHOST = "localhost"

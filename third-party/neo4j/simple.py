@@ -1,6 +1,8 @@
-import tornado.httpserver
-import tornado.ioloop
+#!/usr/bin/env python
+
 import tornado.web
+import tornado.ioloop
+import tornado.httpserver
 from neo4jrestclient.client import GraphDatabase
 
 NEO4JHOST = "http://localhost:7474/db/data/"
