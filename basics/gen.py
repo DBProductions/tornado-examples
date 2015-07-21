@@ -18,5 +18,7 @@ def func():
     IOLoop.instance().stop()
  
 if __name__ == "__main__":
-    func()
+    IOLoop.instance().add_callback(func)
+    IOLoop.instance().add_callback(func)
+    IOLoop.instance().add_callback(func)
     IOLoop.instance().start()
