@@ -11,3 +11,4 @@ requests==2.7.0
 tornado==4.2.1
 torndb==0.3
 wsgiref==0.1.2
+uuid==1.30
