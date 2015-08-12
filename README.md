@@ -1,11 +1,29 @@
 # tornado-examples
 
-Different simple examples with Tornado.  
-Examples using Tornado Version 4.1
+Different simple examples with Tornado V.4.2.  
 
 [Webside](http://www.tornadoweb.org)
 
-Following pip packages are used:  
+## Getting started
+
+Clone the `tornado-examples` repository, install the dependencies and use examples.
+
+### Prerequisites
+
+You must have git, python and pip installed.
+
+### Clone repository
+
+Clone the `tornado-examples` repository.
+
+    $ git clone git@github.com:DBProductions/tornado-examples.git
+    $ cd tornado-examples
+
+Install the dependencies.
+
+     $ pip install -r requirements.txt
+
+### Following pip packages are used  
 motor==0.4  
 neo4jrestclient==2.0.4  
 pymongo==2.8  

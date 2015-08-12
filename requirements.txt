@@ -1,0 +1,13 @@
+MySQL-python==1.2.5
+backports.ssl-match-hostname==3.4.0.2
+certifi==2015.04.28
+greenlet==0.4.7
+motor==0.4.1
+mysql==0.0.1
+neo4jrestclient==2.1.0
+pymongo==2.8
+redis==2.10.3
+requests==2.7.0
+tornado==4.2.1
+torndb==0.3
+wsgiref==0.1.2
