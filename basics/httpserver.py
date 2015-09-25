@@ -1,9 +1,10 @@
 #!/usr/bin/env python
-#
-# A non-blocking, single-threaded HTTP server
+""" non-blocking, single-threaded HTTP server """
 
 import tornado.httpserver
 import tornado.ioloop
+
+PORT = 8888
 
 def handle_request(request):
     message = "You requested %s\n" % request.uri
@@ -11,5 +12,5 @@ def handle_request(request):
     request.finish()
 
 http_server = tornado.httpserver.HTTPServer(handle_request)
-http_server.listen(8888)
+http_server.listen(PORT)
 tornado.ioloop.IOLoop.instance().start()

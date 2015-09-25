@@ -1,16 +1,18 @@
 #!/usr/bin/env python
-#
-# An non-blocking HTTP client
+""" non-blocking HTTP client example """
 
 import tornado.httpclient
 
+URL = "http://www.google.com/"
+
 def handle_response(response):
+    """ request handler function """
     if response.error:
         print "Error:", response.error
     else:
         print response.body
     tornado.ioloop.IOLoop.instance().stop()
 
-http_client = tornado.httpclient.AsyncHTTPClient()
-http_client.fetch("http://www.google.com/", handle_response)
+client = tornado.httpclient.AsyncHTTPClient()
+client.fetch(URL, handle_response)
 tornado.ioloop.IOLoop.instance().start()

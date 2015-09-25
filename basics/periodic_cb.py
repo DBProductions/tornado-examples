@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import time
 from tornado.ioloop import IOLoop, PeriodicCallback
 
 def task_function():

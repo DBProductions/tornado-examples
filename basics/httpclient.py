@@ -1,13 +1,14 @@
 #!/usr/bin/env python
-#
-# A blocking HTTP client
+""" blocking HTTP client example """
 
 import tornado.httpclient
+
+URL = "http://www.google.com/"
 
 http_client = tornado.httpclient.HTTPClient()
 
 try:
-    response = http_client.fetch("http://www.google.com/")
+    response = http_client.fetch(URL)
     print response.body
 except tornado.httpclient.HTTPError, e:
     print "Error:", e

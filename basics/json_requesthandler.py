@@ -6,7 +6,9 @@ import urllib
 import tornado.ioloop
 import tornado.web
 
-class JsonHandler(tornado.web.RequestHandler):        
+PORT = 8888
+
+class JsonHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
         self.set_header('Content-Type', 'application/json')
 
@@ -33,5 +35,5 @@ class JsonHandler(tornado.web.RequestHandler):
 application = tornado.web.Application([(r".*", JsonHandler)], debug=True, autoreload=True)
 
 if __name__ == "__main__":
-    application.listen(8888)
+    application.listen(PORT)
     tornado.ioloop.IOLoop.instance().start()
