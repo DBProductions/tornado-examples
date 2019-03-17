@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-
+import os
 import uuid
 import tornado.web
 import tornado.ioloop
@@ -17,18 +16,20 @@ class SocketHandler(tornado.websocket.WebSocketHandler):
         self.write_message(message)        
     def broadcast(self, message, this_not=None):
         for c in SOCKET_CLIENTS:
-            if c is not this_not:
-                c.write_message(message)
-    def on_close(self):
-        self.broadcast('socket disconnected', self)
+            c.write_message(message)
+    def on_close(self):        
         SOCKET_CLIENTS.remove(self)
+        self.broadcast('socket disconnected', self)
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.render("index.html")
+        self.render("websocket.html")
 
+path = os.path.dirname(__file__)
+tpl_path = os.path.join(path, "tmpl")
 application = tornado.web.Application([(r"/", MainHandler),
-                                       (r"/websocket", SocketHandler)])
+                                       (r"/websocket", SocketHandler)],
+                                      template_path=tpl_path)
 
 if __name__ == "__main__":
     http_server = tornado.httpserver.HTTPServer(application)

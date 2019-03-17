@@ -1,0 +1,28 @@
+version: '3'
+services:
+  redis:
+    image: redis:alpine
+    ports:
+    - "6379:6379"
+  mongodb:
+    image: mongo:3.4.0
+    ports:
+    - "27017:27017"
+    volumes:
+    - dbvolume01:/data
+    environment: {
+      AUTH: "no"
+    }
+  neo4j:
+    image: tpires/neo4j
+    volumes:
+    - ./n:/data
+    cap_add:
+      - SYS_RESOURCE
+    ports:
+      - "7474:7474"
+    environment: {
+      NEO4J_AUTH: "username:password"
+    }
+volumes:
+  dbvolume01: {}

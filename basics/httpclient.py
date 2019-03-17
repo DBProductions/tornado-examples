@@ -1,14 +1,30 @@
-#!/usr/bin/env python
-""" blocking HTTP client example """
-
 import tornado.httpclient
 
-URL = "http://www.google.com/"
+URL = "http://www.dbproductions.de/"
 
-http_client = tornado.httpclient.HTTPClient()
+def http_request():
+    http_client = tornado.httpclient.HTTPClient()
+    try:
+        response = http_client.fetch(URL)
+    except Exception as e:
+        print("Error: %s" % e)
+    else:
+        print("Status Code: {}, Request Time: {}, Body Length: {}".format(response.code,
+                                                                          response.request_time,
+                                                                          len(response.body)))
 
-try:
-    response = http_client.fetch(URL)
-    print response.body
-except tornado.httpclient.HTTPError, e:
-    print "Error:", e
+async def async_http_request():
+    http_client = tornado.httpclient.AsyncHTTPClient()
+    try:
+        response = await http_client.fetch(URL)
+    except Exception as e:
+        print("Error: %s" % e)
+    else:
+        print("Status Code: {}, Request Time: {}, Body Length: {}".format(response.code,
+                                                                          response.request_time,
+                                                                          len(response.body)))
+
+# do a synchronous http request
+http_request()
+# do a asynchronous http request
+tornado.ioloop.IOLoop.current().run_sync(async_http_request)

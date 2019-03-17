@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Websocket example</title>
@@ -8,10 +8,10 @@
         This example only send data over a websocket and receive same data back.
     	<div id="output"></div>
         <script>
-        var ws = new WebSocket("ws://localhost:8888/websocket");
+        const ws = new WebSocket("ws://localhost:8888/websocket");
         ws.onopen = function() {            
             setInterval(function() {
-                ws.send('{"type":"websocket","ts":' + (+new Date()) + '}');  
+                ws.send('{"type":"websocket", "ts":' + (+new Date()) + '}');  
             }, 1000);
         };
         ws.onmessage = function (evt) {

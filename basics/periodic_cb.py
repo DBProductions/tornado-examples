@@ -1,10 +1,8 @@
-#!/usr/bin/env python
-
-from tornado.ioloop import IOLoop, PeriodicCallback
+import tornado.ioloop
 
 def task_function():
-    print 'Do some work.'
+    print('Do some work.')
 
 if __name__ == "__main__":
-    PeriodicCallback(task_function, 1000).start()
-    IOLoop.instance().start()
+    tornado.ioloop.PeriodicCallback(task_function, 1000).start()
+    tornado.ioloop.IOLoop.instance().start()

@@ -1,12 +1,12 @@
 # tornado-examples
 
-Different simple examples with Tornado V.4.2.  
+Different examples with Tornado 6.0.1 and Python 3.6.1.  
 
 [Webside](http://www.tornadoweb.org)
 
 ## Getting started
 
-Clone the `tornado-examples` repository, install the dependencies and use examples.
+Clone the repository, create a virtual environment and install the dependencies.
 
 ### Prerequisites
 
@@ -18,6 +18,11 @@ Clone the `tornado-examples` repository.
 
     $ git clone git@github.com:DBProductions/tornado-examples.git
     $ cd tornado-examples
+
+Create a virtual environment and activate it.  
+
+    $ python3 -m venv .
+    $ source bin/activate
 
 Install the dependencies.
 

@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 import jwt
 import tornado.web
 import tornado.ioloop
@@ -9,13 +7,13 @@ TOKENSECRET = 'asd&*&9798ashdkas#%$*&8jhHKHjhakjhdaksjdasdasd'
 
 class TokenHandler(tornado.web.RequestHandler):
     def get(self):
-    	token = self.get_argument('token', '')
-    	decoded = jwt.decode(token, TOKENSECRET, algorithms=['HS256'])
+        token = self.get_argument('token', '')
+        decoded = jwt.decode(token, TOKENSECRET, algorithms=['HS256'])
         self.write(decoded)
     def post(self):
-    	name = self.get_argument('name')
-    	encoded = jwt.encode({'name': name}, TOKENSECRET, algorithm='HS256')
-    	self.write(encoded)
+        name = self.get_argument('name')
+        encoded = jwt.encode({'name': name}, TOKENSECRET, algorithm='HS256')
+        self.write(encoded)
 
 application = tornado.web.Application([(r'/', TokenHandler)])
 
