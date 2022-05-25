@@ -8,7 +8,7 @@ greenlet==0.4.7
 idna==2.5
 neo4jrestclient==2.1.0
 pycparser==2.19
-PyJWT==1.7.1
+PyJWT==2.4.0
 pymongo==2.8
 redis==2.10.6
 requests==2.21.0
