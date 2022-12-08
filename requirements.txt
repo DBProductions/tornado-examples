@@ -1,6 +1,6 @@
 asn1crypto==0.24.0
 backports.ssl-match-hostname==3.4.0.2
-certifi==2019.3.9
+certifi==2022.12.7
 cffi==1.12.2
 chardet==3.0.4
 cryptography==2.6.1
